@@ -1,0 +1,13 @@
+FIND COMMAND
+
+1. Find multiple files under the current directory and all of its sub-directory.
+find . -name configure.ac -o -nmae Makefile.am 
+
+2. Find all the other files except the matching files. Example, find files other than configure.ac and Makefile.am
+find . ! -name configure.ac -name Makefile.am
+
+3. Find the files under a specific directory and print them so that they can be passed to the pipe. This command matches all the files of pattern README in its name in the specified directory and prints them
+find cse506-hw3/hw3-*/hw3/ -iname "*README*" -print
+
+4. Find certain files and zip them.
+find . -iname "*README*" -print | zip cse506-hw1-readme -@
