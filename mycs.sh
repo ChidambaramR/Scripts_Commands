@@ -24,4 +24,7 @@ find $LNX                                                                \
 echo "Building cscope database..."
 time cscope -q -b -i cscope.files
 
+echo "\n Building CTAGS. Please hold on.."
+ctags -L cscope.files
+
 exit 0
