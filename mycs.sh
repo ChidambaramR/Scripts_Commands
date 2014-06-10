@@ -11,6 +11,11 @@
 
 LNX="."
 
+echo "** Enter y for building cscope for a LINUX kernel or n for building for a normal project **"
+read type
+
+if [ "$type" = "y" ]; then
+
 echo "Finding relevant source files..."
 find $LNX                                                                \
        -path "$LNX/arch/*" ! -path "$LNX/arch/x86*" -prune -o               \
@@ -28,3 +33,11 @@ echo "\n Building CTAGS. Please hold on.."
 ctags -L cscope.files
 
 exit 0
+
+else
+    find $LNX -name "*.[chxsS]" > cscope.files
+    cscope -q -b -i cscope.files
+    ctags -L cscope.files
+fi
+
+
