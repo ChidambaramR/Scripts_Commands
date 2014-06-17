@@ -8,6 +8,14 @@
 #   the email client is not installed in the workspace. This is Arista
 #   specific
 
+# Check if the user has given any argument
+if [ -n "$1" ]; then
+     echo "Device under target $1"
+else
+   echo "Enter the ID of the DUT. Example, mq403"
+   exit
+fi
+
 SUBJECT="$1 grabbed for another 8 hours";
 EMAIL="cramanathan@arista.com";
 hostname=$(hostname -f);
