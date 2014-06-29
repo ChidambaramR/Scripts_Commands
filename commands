@@ -1,0 +1,31 @@
+Grep:
+=====
+
+Command to search by column
+Eg, if the output is of the form 
+a b c
+1 1 1
+2 1 1
+2 2 1
+and we want to search only 1 in 2nd column, then give the following command
+cat hello | grep "^.\{2\}1"
+
+Output:
+$ cat hello | grep "^.\{2\}1"
+1 1 1
+2 1 1
+
+^ - Begining of the line
+. Match any character
+\ - Escape caharcter
+{2} - Skip 1st two characters
+1 - Search for 1
+
+Awk:
+====
+
+We can do a columnwise search with AWK easily.
+a4 bugs -p EosKernel | awk '$2 == "eoskernel-dev"' gives the same result as above
+
+Command to exclude comments from a file and print it
+cat .config | grep -v '^$\|^\s*\#' | wc -l
