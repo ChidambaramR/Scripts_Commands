@@ -29,3 +29,11 @@ a4 bugs -p EosKernel | awk '$2 == "eoskernel-dev"' gives the same result as abov
 
 Command to exclude comments from a file and print it
 cat .config | grep -v '^$\|^\s*\#' | wc -l
+
+Echo some random junk into files
+In the command prompt type, 
+for ((i=1; i<=5; i++)) do echo $i > f$i; done
+
+Ctags globally:
+================
+set tags=./tags,tags;
