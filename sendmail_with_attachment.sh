@@ -5,7 +5,7 @@
 # passed from the outside as arguments should be easy
 
 if [ -z "$1" ] || [ -z "$2" ]; then
-   echo "Usage ./sendmail_with_attachment.sh from_address to_address attachment_filename"
+   echo "Usage $0 from_address to_address attachment_filename"
    exit 1
 fi
 
