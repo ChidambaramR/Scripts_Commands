@@ -4,13 +4,18 @@
 # refactoring the script such that all these values are
 # passed from the outside as arguments should be easy
 
+if [ -z "$1" ] || [ -z "$2" ]; then
+   echo "Usage ./sendmail_with_attachment.sh from_address to_address attachment_filename"
+   exit 1
+fi
+
 from="$1"
-to="cramanathan@arista.com"
+to="$2"
 subject="Some fancy title"
 boundary="ZZ_/afg6432dfgkl.94531q"
 body="This is the body of our email"
 declare -a attachments
-attachments=( "$2" )
+attachments=( "$3" )
 
 # Build headers
 {
