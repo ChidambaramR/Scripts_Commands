@@ -11,9 +11,9 @@ fi
 
 from="$1"
 to="$2"
-subject="Some fancy title"
+subject="File attached <EOM>"
 boundary="ZZ_/afg6432dfgkl.94531q"
-body="This is the body of our email"
+body=""
 declare -a attachments
 attachments=( "$3" )
 
