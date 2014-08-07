@@ -20,13 +20,15 @@ SUBJECT="$1 grabbed for another 8 hours";
 EMAIL="cramanathan@arista.com";
 hostname=$(hostname -f);
 EMAILMESSAGE="Script running in $hostname";
+mess="Debugging BUG92077"
 
+echo $EMAILMESSAGE > msg.txt
 #grabbed_maxHour=$(Art grab -f $1 | cut -d" " -f8- | cut -d":" -f1);
 while [ 1 ]; do
-     vae=`Art grab -f $1`
+     vae=`Art grab -f $1 -c "$mess"`
      current_hour=$(echo `date`  | cut -d" " -f4 | cut -d":" -f1);
      grabbed_maxHour=`expr $current_hour + 8`;
      echo "Box $1 grabbed for 8 more hours"
-     #   /bin/mail -s "$SUBJECT" "$EMAIL" < $EMAILMESSAGE
+     /usr/sbin/sendmail -f "cramanathan@arista.com" -s "$SUBJECT" "$EMAIL" < msg.txt
      sleep 7h
 done
