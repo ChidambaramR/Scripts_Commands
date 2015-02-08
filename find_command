@@ -11,3 +11,6 @@ find cse506-hw3/hw3-*/hw3/ -iname "*README*" -print
 
 4. Find certain files and zip them.
 find . -iname "*README*" -print | zip cse506-hw1-readme -@
+
+5. Find files in a directory , excluding one or more sub-directories
+ind . -path ./build-o0-debug/ -prune -o -path ./.git -prune -o -name "*" -print
