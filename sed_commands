@@ -1,0 +1,10 @@
+Sed Commands
+
+Sed to duplicate the functionality of grep
+sed -n '/pattern/p' filename
+
+Recursively apply SED in a directory
+find dirname -iname "*.cc" -print | xargs sed -n '/pattern/p'
+
+Replace words in a matched line
+sed -i '/HELLO_WORLD/s/VOL_TRACE/VOL_TRACE_CLEANUP/g' test.txt
